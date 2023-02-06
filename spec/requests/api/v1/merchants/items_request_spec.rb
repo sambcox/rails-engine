@@ -17,7 +17,7 @@ describe "Merchant Items Request" do
 
     items = data[:data]
 
-    expect(items.count).to eq(3)
+    expect(items.count).to eq(merchant_raw.items.count)
 
     items.each do |item|
       expect(item).to have_key(:id)
