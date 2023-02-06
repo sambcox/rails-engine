@@ -255,6 +255,7 @@
           1,
           null,
           null,
+          1,
           null,
           null,
           null
@@ -438,26 +439,24 @@
           null,
           1,
           null,
-          0,
+          1,
           null,
-          0,
+          1,
           null,
-          0,
+          1,
           null,
-          0,
+          1,
+          10,
+          10,
           null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
           null,
           null,
           null
@@ -487,17 +486,17 @@
           1,
           null,
           1,
-          4,
-          4,
+          3,
+          3,
           null,
-          4,
-          4,
-          4,
-          4,
-          4,
-          4,
-          4,
-          4,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
           null,
           null,
           null
@@ -552,16 +551,9 @@
           null
         ]
       },
-      "/Users/samuelcox/turing_work/3mod/rails-engine/app/controllers/api/v1/merchants/items_controller.rb": {
+      "/Users/samuelcox/turing_work/3mod/rails-engine/app/controllers/api/v1/items_controller.rb": {
         "lines": [
           1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          null,
           1,
           1,
           null,
@@ -594,6 +586,22 @@
           null
         ]
       },
+      "/Users/samuelcox/turing_work/3mod/rails-engine/app/controllers/api/v1/merchants/items_controller.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
       "/Users/samuelcox/turing_work/3mod/rails-engine/app/controllers/api/v1/merchants_controller.rb": {
         "lines": [
           1,
@@ -608,6 +616,6 @@
         ]
       }
     },
-    "timestamp": 1675724879
+    "timestamp": 1675725028
   }
 }
