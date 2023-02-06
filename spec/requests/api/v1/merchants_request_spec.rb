@@ -10,16 +10,16 @@ describe "Merchants Request" do
 
     data = JSON.parse(response.body, symbolize_names: true)
 
-    merchants = data[:merchants]
+    merchants = data[:data]
 
     expect(merchants.count).to eq(3)
 
     merchants.each do |merchant|
       expect(merchant).to have_key(:id)
-      expect(merchant[:id]).to be_an(Integer)
+      expect(Merchant.exists?(id: merchant[:id])).to eq true
 
-      expect(merchant).to have_key(:name)
-      expect(merchant[:name]).to be_a(String)
+      expect(merchant[:attributes]).to have_key(:name)
+      expect(Merchant.exists?(name: merchant[:attributes][:name])).to eq true
     end
   end
 end
