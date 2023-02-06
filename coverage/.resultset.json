@@ -227,10 +227,10 @@
         "lines": [
           1,
           1,
-          11,
-          11,
-          11,
-          11,
+          21,
+          21,
+          21,
+          21,
           null,
           null
         ]
@@ -239,7 +239,7 @@
         "lines": [
           1,
           1,
-          10,
+          13,
           null,
           null
         ]
@@ -423,6 +423,46 @@
           null
         ]
       },
+      "/Users/samuelcox/turing_work/3mod/rails-engine/spec/requests/api/v1/items_request_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          0,
+          null,
+          0,
+          null,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null
+        ]
+      },
       "/Users/samuelcox/turing_work/3mod/rails-engine/spec/requests/api/v1/merchants/items_request_spec.rb": {
         "lines": [
           1,
@@ -447,17 +487,17 @@
           1,
           null,
           1,
-          1,
-          1,
+          4,
+          4,
           null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
           null,
           null,
           null
@@ -568,6 +608,6 @@
         ]
       }
     },
-    "timestamp": 1675724623
+    "timestamp": 1675724879
   }
 }
