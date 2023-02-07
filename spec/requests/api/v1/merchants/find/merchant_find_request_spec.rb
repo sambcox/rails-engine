@@ -58,4 +58,32 @@ describe "Merchants Get Request" do
     expect(merchant[:attributes]).to have_key(:name)
     expect(merchant[:attributes][:name]).to eq(Merchant.first.name)
   end
+
+  it "returns nil when no merchants are returned" do
+    create_list(:merchant, 3)
+
+    get "/api/v1/merchants/find?name=gigglygooglyboopbopbeep"
+
+    expect(response).to be_successful
+
+    data = JSON.parse(response.body, symbolize_names: true)
+
+    expect(data[:data]).to eq(nil)
+  end
+
+  it "returns an error when no parameter is entered" do
+    create_list(:merchant, 3)
+
+    get "/api/v1/merchants/find"
+
+    expect(response).to_not be_successful
+  end
+
+  it "returns an error when no query is entered" do
+    create_list(:merchant, 3)
+
+    get "/api/v1/merchants/find?name="
+
+    expect(response).to_not be_successful
+  end
 end

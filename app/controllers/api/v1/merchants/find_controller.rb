@@ -1,7 +1,11 @@
 class Api::V1::Merchants::FindController < ApplicationController
   def index
-    set_merchant
-    render json: MerchantSerializer.new(@merchant)
+    if params[:name] && params[:name] != ''
+      set_merchant
+      render json: MerchantSerializer.new(@merchant)
+    else
+      render json: ErrorSerializer.bad_data, status: :not_found
+    end
   end
 
   private

@@ -8,6 +8,6 @@ class Merchant < ApplicationRecord
   validates_presence_of :name
 
   def self.find_by_name(name)
-    Merchant.where('lower(name) LIKE ?', "%#{name.downcase}%").order(:name).limit(1).first
+    Merchant.where('lower(name) LIKE ?', "%#{name.downcase}%").order(Arel.sql('lower(name)')).limit(1).first
   end
 end
