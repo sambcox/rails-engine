@@ -29,6 +29,29 @@ describe "Item Delete Request" do
     expect(item_raw.merchant_id).to eq(item[:attributes][:merchant_id])
   end
 
+  it 'deletes an invoice if deleted item is the last on the invoice' do
+    create_list(:merchant, 3)
+    create_list(:item, 10)
+    create_list(:customer, 3)
+    create_list(:invoice, 10)
+    create_list(:invoice_item, 20)
+    created_invoice = create(:invoice)
+
+    item_raw = Item.first
+
+    create(:invoice_item, invoice_id: created_invoice.id, item_id: item_raw.id)
+
+    invoice_ids = item_raw.invoices.map { |invoice| invoice.id}
+
+    delete "/api/v1/items/#{item_raw.id}"
+
+    invoice_ids.each do |invoice_id|
+      if InvoiceItem.where(invoice_id: invoice_id) == []
+        expect(Invoice.exists?(id: invoice_id)).to eq false
+      end
+    end
+  end
+
   it "returns an error if item is not found" do
     create_list(:merchant, 3)
     create_list(:item, 10)

@@ -223,14 +223,53 @@
           null
         ]
       },
+      "/Users/samuelcox/turing_work/3mod/rails-engine/spec/factories/customers.rb": {
+        "lines": [
+          1,
+          1,
+          4,
+          4,
+          null,
+          null
+        ]
+      },
+      "/Users/samuelcox/turing_work/3mod/rails-engine/spec/factories/invoice_items.rb": {
+        "lines": [
+          1,
+          1,
+          22,
+          22,
+          21,
+          1,
+          20,
+          48,
+          5,
+          null,
+          20,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/samuelcox/turing_work/3mod/rails-engine/spec/factories/invoices.rb": {
+        "lines": [
+          1,
+          1,
+          12,
+          12,
+          12,
+          null,
+          null
+        ]
+      },
       "/Users/samuelcox/turing_work/3mod/rails-engine/spec/factories/items.rb": {
         "lines": [
           1,
           1,
-          101,
-          101,
-          101,
-          101,
+          111,
+          111,
+          111,
+          111,
           null,
           null
         ]
@@ -239,7 +278,7 @@
         "lines": [
           1,
           1,
-          52,
+          55,
           null,
           null
         ]
@@ -459,6 +498,29 @@
           1,
           1,
           1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          3,
+          null,
+          1,
+          null,
+          1,
+          2,
+          1,
+          null,
+          null,
           null,
           null,
           1,
@@ -725,17 +787,17 @@
           1,
           null,
           1,
-          5,
-          5,
+          1,
+          1,
           null,
-          5,
-          5,
-          5,
-          5,
-          5,
-          5,
-          5,
-          5,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
           null,
           null,
           null,
@@ -844,16 +906,21 @@
           null,
           null,
           1,
-          2,
-          2,
-          1,
-          null,
-          null,
-          1,
-          null,
-          1,
-          6,
           3,
+          3,
+          2,
+          2,
+          1,
+          null,
+          null,
+          2,
+          null,
+          null,
+          1,
+          null,
+          1,
+          7,
+          4,
           null,
           3,
           null,
@@ -974,6 +1041,6 @@
         ]
       }
     },
-    "timestamp": 1675800315
+    "timestamp": 1675804400
   }
 }
