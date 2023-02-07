@@ -42,4 +42,20 @@ describe "Items Get Request" do
     expect(created_item.merchant_id).to eq(item_params[:merchant_id])
     expect(created_item.attributes.include?(:goobledegook)).to eq false
   end
+
+  it 'will not create a new item if not given all information' do
+    create_list(:merchant, 3)
+    item_params = ({
+                    name: 'Bad Object'
+                  })
+    headers = {"CONTENT_TYPE" => "application/json"}
+
+    post "/api/v1/items", headers: headers, params: JSON.generate(item: item_params)
+
+    data = JSON.parse(response.body, symbolize_names: true)
+
+    expect(response).to_not be_successful
+    expect(response.status).to eq(422)
+    expect(data[:errors]).to eq(["Merchant must exist", "Description can't be blank", "Unit price can't be blank"])
+  end
 end
