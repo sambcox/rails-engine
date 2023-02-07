@@ -42,4 +42,14 @@ describe "Merchants Get Request" do
     expect(merchant[:attributes]).to have_key(:name)
     expect(Merchant.exists?(name: merchant[:attributes][:name])).to eq true
   end
+
+  it "returns an error if merchant is not found" do
+    create_list(:merchant, 3)
+
+    merchant_raw = Merchant.first
+
+    get "/api/v1/merchants/#{merchant_raw.id - 1}"
+
+    expect(response).to_not be_successful
+  end
 end
