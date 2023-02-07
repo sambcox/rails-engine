@@ -13,9 +13,29 @@ describe "Merchants Get Request" do
     merchant = data[:data]
 
     expect(merchant).to have_key(:id)
-    expect(Merchant.exists?(id: merchant[:id])).to eq true
+    expect(merchant[:id].to_i).to eq(Merchant.first.id)
 
     expect(merchant[:attributes]).to have_key(:name)
-    expect(Merchant.exists?(name: merchant[:attributes][:name])).to eq true
+    expect(merchant[:attributes][:name]).to eq(Merchant.first.name)
+  end
+
+  it "sends a list of merchants" do
+    create_list(:merchant, 3)
+
+    partial_name = Merchant.first.name.chars[1..3].join
+
+    get "/api/v1/merchants/find?name=#{partial_name}"
+
+    expect(response).to be_successful
+
+    data = JSON.parse(response.body, symbolize_names: true)
+
+    merchant = data[:data]
+
+    expect(merchant).to have_key(:id)
+    expect(merchant[:id].to_i).to eq(Merchant.first.id)
+
+    expect(merchant[:attributes]).to have_key(:name)
+    expect(merchant[:attributes][:name]).to eq(Merchant.first.name)
   end
 end
