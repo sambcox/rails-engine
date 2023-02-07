@@ -28,4 +28,15 @@ describe "Item Delete Request" do
     expect(item[:attributes]).to have_key(:merchant_id)
     expect(item_raw.merchant_id).to eq(item[:attributes][:merchant_id])
   end
+
+  it "returns an error if item is not found" do
+    create_list(:merchant, 3)
+    create_list(:item, 10)
+
+    item_raw = Item.first
+
+    delete "/api/v1/items/#{item_raw.id - 1}"
+
+    expect(response).to_not be_successful
+  end
 end

@@ -4,12 +4,18 @@ class Api::V1::MerchantsController < ApplicationController
   end
 
   def show
-    render json: MerchantSerializer.new(set_merchant)
+    set_merchant
+    return if @merchant.nil?
+    render json: MerchantSerializer.new(@merchant)
   end
 
   private
 
   def set_merchant
-    @merchant = Merchant.find(params[:id])
+    if Merchant.exists?(id: params[:id])
+      @merchant = Merchant.find(params[:id])
+    else
+      render json: ErrorSerializer.bad_data, status: :not_found
+    end
   end
 end

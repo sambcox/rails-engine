@@ -33,4 +33,14 @@ describe "Merchant Items Request" do
       expect(found_item.merchant_id).to eq(item[:attributes][:merchant_id])
     end
   end
+
+  it "returns an error if merchant is not found" do
+    create_list(:merchant, 3)
+
+    merchant_raw = Merchant.first
+
+    get "/api/v1/merchants/#{merchant_raw.id - 1}/items"
+
+    expect(response).to_not be_successful
+  end
 end

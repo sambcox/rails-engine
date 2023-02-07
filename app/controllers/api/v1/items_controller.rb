@@ -4,7 +4,9 @@ class Api::V1::ItemsController < ApplicationController
   end
 
   def show
-    render json: ItemSerializer.new(set_item)
+    set_item
+    return if @item == nil
+    render json: ItemSerializer.new(@item)
   end
 
   def create
@@ -12,24 +14,35 @@ class Api::V1::ItemsController < ApplicationController
     if item.save
       render json: ItemSerializer.new(item), status: :created
     else
-      render json: ErrorSerializer.serialize(item.errors), status: :unprocessable_entity
+      render json: ErrorSerializer.unprocessable(item.errors), status: :unprocessable_entity
     end
   end
 
   def update
     set_item
+    return if @item == nil
     @item.update(item_params)
     if @item.save
       render json: ItemSerializer.new(@item)
     else
-      render json: ErrorSerializer.serialize(@item.errors), status: :not_found
+      render json: ErrorSerializer.unprocessable(@item.errors), status: :not_found
     end
+  end
+
+  def destroy
+    set_item
+    return if @item == nil
+    render json: ItemSerializer.new(@item.delete)
   end
 
   private
 
   def set_item
-    @item = Item.find(params[:id])
+    if Item.exists?(id: params[:id])
+      @item = Item.find(params[:id])
+    else
+      return render json: ErrorSerializer.bad_data, status: :not_found
+    end
   end
 
   def item_params
