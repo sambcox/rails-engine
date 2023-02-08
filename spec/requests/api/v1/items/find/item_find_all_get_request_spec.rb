@@ -104,4 +104,20 @@ describe "Find Items Get Request" do
       expect(item[:attributes][:description]).to eq('Jordan 191')
     end
   end
+
+  it "returns all items given a partial description" do
+    create_list(:merchant, 3)
+    findable_items = create_list(:item, 5, name: 'Jordan 191')
+    lost_items = create_list(:item, 5, description: "Ferrari 641")
+
+    get "/api/v1/items/find_all?name=#{'F2004'}"
+
+    expect(response).to be_successful
+
+    data = JSON.parse(response.body, symbolize_names: true)
+
+    data = data[:data]
+
+    expect(data).to eq([])
+  end
 end
