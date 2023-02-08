@@ -8,6 +8,8 @@ class Item < ApplicationRecord
   validates_numericality_of :unit_price
 
   def self.find_all_by_name(name)
-    Item.where('lower(name) LIKE ?', "%#{name.downcase}%").order(Arel.sql('lower(name)'))
+    Item.where('lower(name) LIKE ?', "%#{name.downcase}%")
+        .or(Item.where('lower(description) LIKE ?', "%#{name.downcase}%"))
+        .order(Arel.sql('lower(name)'))
   end
 end
