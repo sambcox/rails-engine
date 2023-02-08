@@ -105,7 +105,7 @@ describe "Find Items Get Request" do
     end
   end
 
-  it "returns all items given a partial description" do
+  it "returns no items when none exist, but does not return an error" do
     create_list(:merchant, 3)
     findable_items = create_list(:item, 5, name: 'Jordan 191')
     lost_items = create_list(:item, 5, description: "Ferrari 641")
@@ -119,5 +119,25 @@ describe "Find Items Get Request" do
     data = data[:data]
 
     expect(data).to eq([])
+  end
+
+  it "returns an error when no parameter is given" do
+    create_list(:merchant, 3)
+    findable_items = create_list(:item, 5, name: 'Jordan 191')
+    lost_items = create_list(:item, 5, description: "Ferrari 641")
+
+    get "/api/v1/items/find_all"
+
+    expect(response).to_not be_successful
+  end
+
+  it "returns an error when no query is given" do
+    create_list(:merchant, 3)
+    findable_items = create_list(:item, 5, name: 'Jordan 191')
+    lost_items = create_list(:item, 5, description: "Ferrari 641")
+
+    get "/api/v1/items/find_all?name="
+
+    expect(response).to_not be_successful
   end
 end
