@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2023-02-07T17:55:04-07:00">2023-02-07T17:55:04-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2023-02-07T18:05:56-07:00">2023-02-07T18:05:56-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -30,7 +30,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         3.22
+         3.18
        </span>
     </span> hits/line
     )
@@ -43,8 +43,8 @@
   </div>
 
   <div class="t-line-summary">
-    <b>724</b> relevant lines,
-    <span class="green"><b>723</b> lines covered</span> and
+    <b>708</b> relevant lines,
+    <span class="green"><b>707</b> lines covered</span> and
     <span class="red"><b>1</b> lines missed. </span>
     (<span class="green">
   99.86%
@@ -77,7 +77,7 @@
             <td class="cell--number">14</td>
             <td class="cell--number">14</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">4.29</td>
+            <td class="cell--number">4.07</td>
             
           </tr>
         
@@ -99,7 +99,7 @@
             <td class="cell--number">35</td>
             <td class="cell--number">34</td>
             <td class="cell--number">1</td>
-            <td class="cell--number">1.97</td>
+            <td class="cell--number">1.91</td>
             
           </tr>
         
@@ -198,7 +198,7 @@
             <td class="cell--number">15</td>
             <td class="cell--number">15</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">1.80</td>
+            <td class="cell--number">1.87</td>
             
           </tr>
         
@@ -407,7 +407,7 @@
             <td class="cell--number">10</td>
             <td class="cell--number">10</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">16.10</td>
+            <td class="cell--number">15.30</td>
             
           </tr>
         
@@ -429,7 +429,7 @@
             <td class="cell--number">6</td>
             <td class="cell--number">6</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">146.83</td>
+            <td class="cell--number">141.83</td>
             
           </tr>
         
@@ -440,7 +440,7 @@
             <td class="cell--number">3</td>
             <td class="cell--number">3</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">39.00</td>
+            <td class="cell--number">38.00</td>
             
           </tr>
         
@@ -524,11 +524,11 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#29a3a7697fbd4784da83a1d867283a7487107c36" class="src_link" title="spec/requests/api/v1/items/find/item_find_all_by_price_get_request_spec.rb">spec/requests/api/v1/items/find/item_find_all_by_price_get_request_spec.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">145</td>
-            <td class="cell--number">85</td>
-            <td class="cell--number">85</td>
+            <td class="cell--number">117</td>
+            <td class="cell--number">69</td>
+            <td class="cell--number">69</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">1.80</td>
+            <td class="cell--number">1.75</td>
             
           </tr>
         
@@ -539,7 +539,7 @@
             <td class="cell--number">41</td>
             <td class="cell--number">41</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">1.27</td>
+            <td class="cell--number">1.17</td>
             
           </tr>
         
@@ -686,19 +686,19 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="14" data-linenumber="3">
-            <span class="hits">14</span>
+          <li class="covered" data-hits="13" data-linenumber="3">
+            <span class="hits">13</span>
             
 
             
 
-            <code class="ruby">    if params[:name] &amp;&amp; params[:name] != &#39;&#39;</code>
+            <code class="ruby">    if (params[:name] &amp;&amp; params[:name] != &#39;&#39;) &amp;&amp; (!params[:min_price] &amp;&amp; !params[:max_price])</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="7" data-linenumber="4">
-            <span class="hits">7</span>
+          <li class="covered" data-hits="5" data-linenumber="4">
+            <span class="hits">5</span>
             
 
             
@@ -708,8 +708,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="7" data-linenumber="5">
-            <span class="hits">7</span>
+          <li class="covered" data-hits="5" data-linenumber="5">
+            <span class="hits">5</span>
             
 
             
@@ -719,19 +719,19 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="7" data-linenumber="6">
-            <span class="hits">7</span>
+          <li class="covered" data-hits="8" data-linenumber="6">
+            <span class="hits">8</span>
             
 
             
 
-            <code class="ruby">    elsif params[:min_price] || params[:max_price] &amp;&amp; params[:min_price] != &#39;&#39; &amp;&amp; params[:max_price] != &#39;&#39;</code>
+            <code class="ruby">    elsif (params[:min_price] || params[:max_price]) &amp;&amp; (params[:min_price] != &#39;&#39; &amp;&amp; params[:max_price] != &#39;&#39;) &amp;&amp; !params[:name]</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="7">
-            <span class="hits">3</span>
+          <li class="covered" data-hits="4" data-linenumber="7">
+            <span class="hits">4</span>
             
 
             
@@ -741,8 +741,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="8">
-            <span class="hits">3</span>
+          <li class="covered" data-hits="4" data-linenumber="8">
+            <span class="hits">4</span>
             
 
             
@@ -840,8 +840,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="7" data-linenumber="17">
-            <span class="hits">7</span>
+          <li class="covered" data-hits="5" data-linenumber="17">
+            <span class="hits">5</span>
             
 
             
@@ -884,8 +884,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="21">
-            <span class="hits">3</span>
+          <li class="covered" data-hits="4" data-linenumber="21">
+            <span class="hits">4</span>
             
 
             
@@ -1628,8 +1628,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="6" data-linenumber="43">
-            <span class="hits">6</span>
+          <li class="covered" data-hits="4" data-linenumber="43">
+            <span class="hits">4</span>
             
 
             
@@ -3161,8 +3161,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="7" data-linenumber="11">
-            <span class="hits">7</span>
+          <li class="covered" data-hits="5" data-linenumber="11">
+            <span class="hits">5</span>
             
 
             
@@ -3271,8 +3271,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="21">
-            <span class="hits">3</span>
+          <li class="covered" data-hits="4" data-linenumber="21">
+            <span class="hits">4</span>
             
 
             
@@ -3282,8 +3282,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="22">
-            <span class="hits">3</span>
+          <li class="covered" data-hits="4" data-linenumber="22">
+            <span class="hits">4</span>
             
 
             
@@ -3293,8 +3293,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="23">
-            <span class="hits">3</span>
+          <li class="covered" data-hits="4" data-linenumber="23">
+            <span class="hits">4</span>
             
 
             
@@ -6577,8 +6577,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="48" data-linenumber="8">
-            <span class="hits">48</span>
+          <li class="covered" data-hits="44" data-linenumber="8">
+            <span class="hits">44</span>
             
 
             
@@ -6588,8 +6588,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="5" data-linenumber="9">
-            <span class="hits">5</span>
+          <li class="covered" data-hits="1" data-linenumber="9">
+            <span class="hits">1</span>
             
 
             
@@ -6826,8 +6826,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="196" data-linenumber="4">
-            <span class="hits">196</span>
+          <li class="covered" data-hits="206" data-linenumber="4">
+            <span class="hits">206</span>
             
 
             
@@ -6837,8 +6837,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="221" data-linenumber="5">
-            <span class="hits">221</span>
+          <li class="covered" data-hits="191" data-linenumber="5">
+            <span class="hits">191</span>
             
 
             
@@ -6848,8 +6848,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="256" data-linenumber="6">
-            <span class="hits">256</span>
+          <li class="covered" data-hits="246" data-linenumber="6">
+            <span class="hits">246</span>
             
 
             
@@ -6934,8 +6934,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="115" data-linenumber="3">
-            <span class="hits">115</span>
+          <li class="covered" data-hits="112" data-linenumber="3">
+            <span class="hits">112</span>
             
 
             
@@ -9710,8 +9710,8 @@
     
 
     <div class="t-line-summary">
-      <b>85</b> relevant lines.
-      <span class="green"><b>85</b> lines covered</span> and
+      <b>69</b> relevant lines.
+      <span class="green"><b>69</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -10048,7 +10048,7 @@
 
             
 
-            <code class="ruby">  it &quot;returns all items given a part of the name&quot; do</code>
+            <code class="ruby">  it &quot;returns all items given a maximum price&quot; do</code>
           </li>
         </div>
       
@@ -10334,7 +10334,7 @@
 
             
 
-            <code class="ruby">  it &quot;returns all items given a description&quot; do</code>
+            <code class="ruby">  it &quot;returns all items given a minimum and maximum price&quot; do</code>
           </li>
         </div>
       
@@ -10642,7 +10642,7 @@
 
             
 
-            <code class="ruby">  it &quot;returns all items given a partial description&quot; do</code>
+            <code class="ruby">  it &quot;returns an empty array if no items are found&quot; do</code>
           </li>
         </div>
       
@@ -10664,7 +10664,7 @@
 
             
 
-            <code class="ruby">    findable_items = create_list(:item, 5, description: &#39;Jordan 191&#39;)</code>
+            <code class="ruby">    lost_items = create_list(:item, 5, unit_price: Faker::Number.within(range: 1.00..99.00))</code>
           </li>
         </div>
       
@@ -10675,7 +10675,7 @@
 
             
 
-            <code class="ruby">    lost_items = create_list(:item, 5, description: &quot;Ferrari 641&quot;)</code>
+            <code class="ruby">    lost_items = create_list(:item, 5, unit_price: Faker::Number.within(range: 501.00..1000.00))</code>
           </li>
         </div>
       
@@ -10697,7 +10697,7 @@
 
             
 
-            <code class="ruby">    get &quot;/api/v1/items/find_all?name=#{&#39; 191&#39;}&quot;</code>
+            <code class="ruby">    get &quot;/api/v1/items/find_all?min_price=100&amp;max_price=500&quot;</code>
           </li>
         </div>
       
@@ -10763,7 +10763,7 @@
 
             
 
-            <code class="ruby">    items = data[:data]</code>
+            <code class="ruby">    expect(data[:data]).to eq([])</code>
           </li>
         </div>
       
@@ -10774,29 +10774,29 @@
 
             
 
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="97">
+            
+            
+
+            
+
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="97">
+          <li class="covered" data-hits="1" data-linenumber="98">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">    expect(items.count).to eq(5)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="98">
-            
-            
-
-            
-
-            <code class="ruby"></code>
+            <code class="ruby">  it &quot;returns an error when no queries are given&quot; do</code>
           </li>
         </div>
       
@@ -10807,18 +10807,18 @@
 
             
 
-            <code class="ruby">    item_ids = findable_items.map(&amp;:id)</code>
+            <code class="ruby">    create_list(:merchant, 3)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="100">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="100">
+            <span class="hits">1</span>
             
 
-            <code class="ruby"></code>
+            
+
+            <code class="ruby">    lost_items = create_list(:item, 5, unit_price: Faker::Number.within(range: 1.00..99.00))</code>
           </li>
         </div>
       
@@ -10829,29 +10829,29 @@
 
             
 
-            <code class="ruby">    items.each do |item|</code>
+            <code class="ruby">    lost_items = create_list(:item, 5, unit_price: Faker::Number.within(range: 501.00..1000.00))</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="5" data-linenumber="102">
-            <span class="hits">5</span>
+          <li class="never" data-hits="" data-linenumber="102">
+            
             
 
             
 
-            <code class="ruby">      expect(item).to have_key(:id)</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="5" data-linenumber="103">
-            <span class="hits">5</span>
+          <li class="covered" data-hits="1" data-linenumber="103">
+            <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">      expect(item_ids).to include(item[:id].to_i)</code>
+            <code class="ruby">    get &quot;/api/v1/items/find_all?min_price=&amp;max_price=&quot;</code>
           </li>
         </div>
       
@@ -10867,40 +10867,18 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="5" data-linenumber="105">
-            <span class="hits">5</span>
+          <li class="covered" data-hits="1" data-linenumber="105">
+            <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">      expect(item[:attributes]).to have_key(:name)</code>
+            <code class="ruby">    expect(response).to_not be_successful</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="5" data-linenumber="106">
-            <span class="hits">5</span>
-            
-
-            
-
-            <code class="ruby">      expect(item[:attributes][:description]).to eq(&#39;Jordan 191&#39;)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="107">
-            
-            
-
-            
-
-            <code class="ruby">    end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="108">
+          <li class="never" data-hits="" data-linenumber="106">
             
             
 
@@ -10911,7 +10889,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="109">
+          <li class="never" data-hits="" data-linenumber="107">
             
             
 
@@ -10922,18 +10900,18 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="110">
+          <li class="covered" data-hits="1" data-linenumber="108">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">  it &quot;returns no items when none exist, but does not return an error&quot; do</code>
+            <code class="ruby">  it &quot;returns an error when price and name parameters are given&quot; do</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="111">
+          <li class="covered" data-hits="1" data-linenumber="109">
             <span class="hits">1</span>
             
 
@@ -10944,7 +10922,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="112">
+          <li class="covered" data-hits="1" data-linenumber="110">
             <span class="hits">1</span>
             
 
@@ -10955,13 +10933,35 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="113">
+          <li class="covered" data-hits="1" data-linenumber="111">
             <span class="hits">1</span>
             
 
             
 
             <code class="ruby">    lost_items = create_list(:item, 5, description: &quot;Ferrari 641&quot;)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="112">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="113">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    get &quot;/api/v1/items/find_all?min_price=100&amp;max_price=500&amp;name=Jordan&quot;</code>
           </li>
         </div>
       
@@ -10983,7 +10983,7 @@
 
             
 
-            <code class="ruby">    get &quot;/api/v1/items/find_all?name=#{&#39;F2004&#39;}&quot;</code>
+            <code class="ruby">    expect(response).to_not be_successful</code>
           </li>
         </div>
       
@@ -10994,320 +10994,12 @@
 
             
 
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="117">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    expect(response).to be_successful</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="118">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="119">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    data = JSON.parse(response.body, symbolize_names: true)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="120">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="121">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    data = data[:data]</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="122">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="123">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    expect(data).to eq([])</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="124">
-            
-            
-
-            
-
             <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="125">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="126">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">  it &quot;returns an error when no parameter is given&quot; do</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="127">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    create_list(:merchant, 3)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="128">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    findable_items = create_list(:item, 5, name: &#39;Jordan 191&#39;)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="129">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    lost_items = create_list(:item, 5, description: &quot;Ferrari 641&quot;)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="130">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="131">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    get &quot;/api/v1/items/find_all&quot;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="132">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="133">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    expect(response).to_not be_successful</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="134">
-            
-            
-
-            
-
-            <code class="ruby">  end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="135">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="136">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">  it &quot;returns an error when no query is given&quot; do</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="137">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    create_list(:merchant, 3)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="138">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    findable_items = create_list(:item, 5, name: &#39;Jordan 191&#39;)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="139">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    lost_items = create_list(:item, 5, description: &quot;Ferrari 641&quot;)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="140">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="141">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    get &quot;/api/v1/items/find_all?name=&quot;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="142">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="143">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    expect(response).to_not be_successful</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="144">
-            
-            
-
-            
-
-            <code class="ruby">  end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="145">
+          <li class="never" data-hits="" data-linenumber="117">
             
             
 
@@ -11822,8 +11514,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="7" data-linenumber="44">
-            <span class="hits">7</span>
+          <li class="covered" data-hits="5" data-linenumber="44">
+            <span class="hits">5</span>
             
 
             
@@ -11877,8 +11569,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="6" data-linenumber="49">
-            <span class="hits">6</span>
+          <li class="covered" data-hits="4" data-linenumber="49">
+            <span class="hits">4</span>
             
 
             

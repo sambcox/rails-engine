@@ -1,9 +1,9 @@
 class Api::V1::Items::FindAllController < ApplicationController
   def index
-    if params[:name] && params[:name] != ''
+    if (params[:name] && params[:name] != '') && (!params[:min_price] && !params[:max_price])
       set_items_by_name
       render json: ItemSerializer.new(@items)
-    elsif params[:min_price] || params[:max_price] && params[:min_price] != '' && params[:max_price] != ''
+    elsif (params[:min_price] || params[:max_price]) && (params[:min_price] != '' && params[:max_price] != '') && !params[:name]
       set_items_by_price
       render json: ItemSerializer.new(@items)
     else
