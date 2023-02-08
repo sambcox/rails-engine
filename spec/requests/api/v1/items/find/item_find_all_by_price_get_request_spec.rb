@@ -1,12 +1,11 @@
 require 'rails_helper'
 
-describe "Find Items Get Request" do
+describe "Find Items by Price Get Request" do
   it "returns all items given a name" do
     create_list(:merchant, 3)
-    findable_items = create_list(:item, 5, name: 'Jordan 191')
-    lost_items = create_list(:item, 5, name: "Ferrari 641")
+    findable_items = create_list(:item, 10)
 
-    get "/api/v1/items/find_all?name=#{'Jordan 191'}"
+    get "/api/v1/items/find_all?min_price=100"
 
     expect(response).to be_successful
 
@@ -14,16 +13,12 @@ describe "Find Items Get Request" do
 
     items = data[:data]
 
-    expect(items.count).to eq(5)
-
-    item_ids = findable_items.map(&:id)
-
     items.each do |item|
       expect(item).to have_key(:id)
-      expect(item_ids).to include(item[:id].to_i)
+      expect(Item.exists?(id: item[:id].to_i)).to eq true
 
-      expect(item[:attributes]).to have_key(:name)
-      expect(item[:attributes][:name]).to eq('Jordan 191')
+      expect(item[:attributes]).to have_key(:unit_price)
+      expect(item[:attributes][:unit_price].to_i).to eq >= 100
     end
   end
 
