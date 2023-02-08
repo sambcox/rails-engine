@@ -32,15 +32,19 @@ class Api::V1::ItemsController < ApplicationController
   def destroy
     set_item
     return if @item == nil
+    destroy_invoice_items
+    render json: ItemSerializer.new(@item.destroy)
+  end
+
+  private
+
+  def destroy_invoice_items
     @item.invoices.each do |invoice|
       if invoice.invoice_items.count <= 1
         invoice.destroy
       end
     end
-    render json: ItemSerializer.new(@item.destroy)
   end
-
-  private
 
   def set_item
     if Item.exists?(id: params[:id])

@@ -57,6 +57,6 @@ describe "Items Post Request" do
 
     expect(response).to_not be_successful
     expect(response.status).to eq(422)
-    expect(data[:errors]).to eq(["Merchant must exist", "Description can't be blank", "Unit price can't be blank"])
+    expect(data[:errors]).to eq(["Merchant must exist", "Description can't be blank", "Unit price can't be blank", "Unit price is not a number"])
   end
 end

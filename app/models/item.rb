@@ -5,4 +5,9 @@ class Item < ApplicationRecord
   has_many :transactions, through: :invoices
 
   validates_presence_of :name, :description, :unit_price
+  validates_numericality_of :unit_price
+
+  def self.find_all_by_name(name)
+    Item.where('lower(name) LIKE ?', "%#{name.downcase}%").order(Arel.sql('lower(name)'))
+  end
 end

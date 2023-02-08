@@ -41,7 +41,7 @@ describe "Item Delete Request" do
 
     create(:invoice_item, invoice_id: created_invoice.id, item_id: item_raw.id)
 
-    invoice_ids = item_raw.invoices.map { |invoice| invoice.id}
+    invoice_ids = item_raw.invoices.map { |invoice| invoice.id }
 
     delete "/api/v1/items/#{item_raw.id}"
 

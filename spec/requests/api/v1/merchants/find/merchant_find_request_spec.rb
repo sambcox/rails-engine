@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "Merchants Get Request" do
+describe "Find Merchant Get Request" do
   it "returns a merchant" do
     create_list(:merchant, 3)
 
@@ -68,7 +68,7 @@ describe "Merchants Get Request" do
 
     data = JSON.parse(response.body, symbolize_names: true)
 
-    expect(data[:data]).to eq(nil)
+    expect(data[:data]).to eq({})
   end
 
   it "returns an error when no parameter is entered" do

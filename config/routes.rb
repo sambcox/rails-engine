@@ -5,6 +5,9 @@ Rails.application.routes.draw do
       namespace :merchants do
         resources :find, only: :index
       end
+      namespace :items do
+        resources :find_all, only: :index
+      end
       resources :merchants, only: [:index, :show] do
         scope module: 'merchants' do
           resources :items, only: :index

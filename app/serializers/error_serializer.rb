@@ -12,4 +12,10 @@ class ErrorSerializer
       "errors": ["Resource not found"]
     }
   end
+
+  def self.no_data
+    {
+      data: {}
+    }
+  end
 end
