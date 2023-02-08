@@ -57,7 +57,7 @@ describe "Find Items by Price Get Request" do
     create_list(:merchant, 3)
     findable_items = create_list(:item, 5, unit_price: Faker::Number.within(range: 100.00..500.00))
     lost_items = create_list(:item, 5, unit_price: Faker::Number.within(range: 1.00..99.00))
-    lost_items = create_list(:item, 5, unit_price: Faker::Number.within(range: 501.00..1000.00))
+    lost_items_2 = create_list(:item, 5, unit_price: Faker::Number.within(range: 501.00..1000.00))
 
     get "/api/v1/items/find_all?min_price=100&max_price=500"
 
@@ -84,7 +84,7 @@ describe "Find Items by Price Get Request" do
   it "returns an empty array if no items are found" do
     create_list(:merchant, 3)
     lost_items = create_list(:item, 5, unit_price: Faker::Number.within(range: 1.00..99.00))
-    lost_items = create_list(:item, 5, unit_price: Faker::Number.within(range: 501.00..1000.00))
+    lost_items_2 = create_list(:item, 5, unit_price: Faker::Number.within(range: 501.00..1000.00))
 
     get "/api/v1/items/find_all?min_price=100&max_price=500"
 
@@ -95,22 +95,62 @@ describe "Find Items by Price Get Request" do
     expect(data[:data]).to eq([])
   end
 
-  it "returns an error when no queries are given" do
+  it "returns an error when no minimum price is given" do
     create_list(:merchant, 3)
     lost_items = create_list(:item, 5, unit_price: Faker::Number.within(range: 1.00..99.00))
-    lost_items = create_list(:item, 5, unit_price: Faker::Number.within(range: 501.00..1000.00))
+    lost_items_2 = create_list(:item, 5, unit_price: Faker::Number.within(range: 501.00..1000.00))
 
-    get "/api/v1/items/find_all?min_price=&max_price="
+    get "/api/v1/items/find_all?min_price="
 
     expect(response).to_not be_successful
   end
 
-  it "returns an error when price and name parameters are given" do
+  it "returns an error when no maximum price is given" do
+    create_list(:merchant, 3)
+    lost_items = create_list(:item, 5, unit_price: Faker::Number.within(range: 1.00..99.00))
+    lost_items_2 = create_list(:item, 5, unit_price: Faker::Number.within(range: 501.00..1000.00))
+
+    get "/api/v1/items/find_all?max_price="
+
+    expect(response).to_not be_successful
+  end
+
+  it "returns an error when minimum price and name parameters are given" do
     create_list(:merchant, 3)
     findable_items = create_list(:item, 5, name: 'Jordan 191')
     lost_items = create_list(:item, 5, description: "Ferrari 641")
 
-    get "/api/v1/items/find_all?min_price=100&max_price=500&name=Jordan"
+    get "/api/v1/items/find_all?min_price=100&name=Jordan"
+
+    expect(response).to_not be_successful
+  end
+
+  it "returns an error when maximum price and name parameters are given" do
+    create_list(:merchant, 3)
+    findable_items = create_list(:item, 5, name: 'Jordan 191')
+    lost_items = create_list(:item, 5, description: "Ferrari 641")
+
+    get "/api/v1/items/find_all?max_price=100&name=Jordan"
+
+    expect(response).to_not be_successful
+  end
+
+  it "returns an error when minimum price is below zero" do
+    create_list(:merchant, 3)
+    create_list(:item, 5, unit_price: Faker::Number.within(range: 1.00..99.00))
+    create_list(:item, 5, unit_price: Faker::Number.within(range: 501.00..1000.00))
+
+    get "/api/v1/items/find_all?min_price=-100"
+
+    expect(response).to_not be_successful
+  end
+
+  it "returns an error when maximum price is below zero" do
+    create_list(:merchant, 3)
+    create_list(:item, 5, unit_price: Faker::Number.within(range: 1.00..99.00))
+    create_list(:item, 5, unit_price: Faker::Number.within(range: 501.00..1000.00))
+
+    get "/api/v1/items/find_all?max_price=-100"
 
     expect(response).to_not be_successful
   end
