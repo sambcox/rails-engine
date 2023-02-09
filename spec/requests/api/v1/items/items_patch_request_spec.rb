@@ -58,6 +58,10 @@ describe "Items Patch Request" do
     patch "/api/v1/items/#{item_raw.id}", headers: headers, params: JSON.generate(item: item_params)
 
     expect(response.status).to eq 404
+
+    data = JSON.parse(response.body, symbolize_names: true)
+
+    expect(data[:errors]).to eq(['Merchant must exist'])
   end
 
   it 'returns an error if the item unit price is not a number' do
@@ -77,6 +81,10 @@ describe "Items Patch Request" do
     patch "/api/v1/items/#{item_raw.id}", headers: headers, params: JSON.generate(item: item_params)
 
     expect(response.status).to eq 404
+
+    data = JSON.parse(response.body, symbolize_names: true)
+
+    expect(data[:errors]).to eq(['Unit price is not a number'])
   end
 
   it "returns an error if item is not found" do
@@ -96,5 +104,9 @@ describe "Items Patch Request" do
     patch "/api/v1/items/#{item_raw.id - 1}", headers: headers, params: JSON.generate(item: item_params)
 
     expect(response).to_not be_successful
+
+    data = JSON.parse(response.body, symbolize_names: true)
+
+    expect(data[:errors]).to eq(["Couldn't find Item with 'id'=#{item_raw.id - 1}"])
   end
 end

@@ -61,5 +61,9 @@ describe "Item Delete Request" do
     delete "/api/v1/items/#{item_raw.id - 1}"
 
     expect(response).to_not be_successful
+
+    data = JSON.parse(response.body, symbolize_names: true)
+
+    expect(data[:errors]).to eq(["Couldn't find Item with 'id'=#{item_raw.id - 1}"])
   end
 end

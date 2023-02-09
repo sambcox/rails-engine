@@ -1,9 +1,9 @@
-class Api::V1::Items::FindAllController < Api::V1::Items::BaseController
+class Api::V1::Items::FindController < Api::V1::Items::BaseController
   def index
     params_valid?
 
-    set_items
-    render_items
+    set_item
+    render_item
   end
 
   private
@@ -16,23 +16,27 @@ class Api::V1::Items::FindAllController < Api::V1::Items::BaseController
     raise BadDataError.new('Minimum price must be less than maximum price') if (params[:min_price] && params[:max_price]) && (params[:min_price].to_f > params[:max_price].to_f)
   end
 
-  def set_items
+  def set_item
     if params[:name]
-      set_items_by_name
+      set_item_by_name
     elsif params[:min_price] || params[:max_price]
-      set_items_by_price
+      set_item_by_price
     end
   end
 
-  def render_items
-    render json: ItemSerializer.new(@items)
+  def render_item
+    if @item.nil?
+      render json: ErrorSerializer.no_data
+    else
+      render json: ItemSerializer.new(@item)
+    end
   end
 
-  def set_items_by_name
-    @items = Item.find_all_by_name(params[:name])
+  def set_item_by_name
+    @item = Item.find_by_name(params[:name])
   end
 
-  def set_items_by_price
-    @items = Item.find_all_by_price(params[:min_price], params[:max_price])
+  def set_item_by_price
+    @item = Item.find_by_price(params[:min_price], params[:max_price])
   end
 end

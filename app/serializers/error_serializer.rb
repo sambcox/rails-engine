@@ -1,15 +1,9 @@
 class ErrorSerializer
-  def self.unprocessable(errors)
+  def self.serialize(error)
     {
       "message": "There was an error processing your request",
-      "errors": errors.full_messages
-    }
-  end
-
-  def self.bad_data
-    {
-      "message": "There was an error processing your request",
-      "errors": ["Resource not found"]
+      "errors": error.messages,
+      "status": error.status
     }
   end
 

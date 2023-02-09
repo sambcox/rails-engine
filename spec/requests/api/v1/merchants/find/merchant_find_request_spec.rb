@@ -77,6 +77,10 @@ describe "Find Merchant Get Request" do
     get "/api/v1/merchants/find"
 
     expect(response).to_not be_successful
+
+    data = JSON.parse(response.body, symbolize_names: true)
+
+    expect(data[:errors]).to eq(['Parameter must be present'])
   end
 
   it "returns an error when no query is entered" do
@@ -85,5 +89,9 @@ describe "Find Merchant Get Request" do
     get "/api/v1/merchants/find?name="
 
     expect(response).to_not be_successful
+
+    data = JSON.parse(response.body, symbolize_names: true)
+
+    expect(data[:errors]).to eq(["Parameter must be present"])
   end
 end

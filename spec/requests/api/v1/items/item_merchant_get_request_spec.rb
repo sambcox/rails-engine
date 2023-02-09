@@ -31,5 +31,9 @@ describe "Item Merchant Get Request" do
     get "/api/v1/items/#{item_raw.id - 1}/merchant"
 
     expect(response).to_not be_successful
+
+    data = JSON.parse(response.body, symbolize_names: true)
+
+    expect(data[:errors]).to eq(["Couldn't find Item with 'id'=#{item_raw.id - 1}"])
   end
 end

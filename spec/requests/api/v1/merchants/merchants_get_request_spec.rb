@@ -51,5 +51,9 @@ describe "Merchants Get Request" do
     get "/api/v1/merchants/#{merchant_raw.id - 1}"
 
     expect(response).to_not be_successful
+
+    data = JSON.parse(response.body, symbolize_names: true)
+
+    expect(data[:errors]).to eq(["Couldn't find Merchant with 'id'=#{merchant_raw.id - 1}"])
   end
 end
