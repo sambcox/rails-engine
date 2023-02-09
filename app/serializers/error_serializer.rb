@@ -6,10 +6,10 @@ class ErrorSerializer
     }
   end
 
-  def self.bad_data
+  def self.bad_data(error)
     {
       "message": "There was an error processing your request",
-      "errors": ["Resource not found"]
+      "errors": error.message
     }
   end
 

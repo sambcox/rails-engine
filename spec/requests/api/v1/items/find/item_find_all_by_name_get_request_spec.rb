@@ -129,6 +129,10 @@ describe "Find Items by Name Get Request" do
     get "/api/v1/items/find_all"
 
     expect(response).to_not be_successful
+
+    data = JSON.parse(response.body, symbolize_names: true)
+
+    expect(data[:errors]).to eq(['Query must be provided'])
   end
 
   it "returns an error when no query is given" do
@@ -139,5 +143,9 @@ describe "Find Items by Name Get Request" do
     get "/api/v1/items/find_all?name="
 
     expect(response).to_not be_successful
+
+    data = JSON.parse(response.body, symbolize_names: true)
+
+    expect(data[:errors]).to eq(['Name must be provided'])
   end
 end

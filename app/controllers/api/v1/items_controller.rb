@@ -5,7 +5,6 @@ class Api::V1::ItemsController < ApplicationController
 
   def show
     set_item
-    return if @item == nil
     render json: ItemSerializer.new(@item)
   end
 
@@ -20,7 +19,6 @@ class Api::V1::ItemsController < ApplicationController
 
   def update
     set_item
-    return if @item == nil
     @item.update(item_params)
     if @item.save
       render json: ItemSerializer.new(@item)
@@ -31,7 +29,6 @@ class Api::V1::ItemsController < ApplicationController
 
   def destroy
     set_item
-    return if @item == nil
     destroy_invoice_items
     render json: ItemSerializer.new(@item.destroy)
   end
@@ -47,11 +44,7 @@ class Api::V1::ItemsController < ApplicationController
   end
 
   def set_item
-    if Item.exists?(id: params[:id])
-      @item = Item.find(params[:id])
-    else
-      return render json: ErrorSerializer.bad_data, status: :not_found
-    end
+    @item = Item.find(params[:id])
   end
 
   def item_params

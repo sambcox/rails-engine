@@ -8,7 +8,7 @@ class Api::V1::Merchants::FindController < ApplicationController
         render json: MerchantSerializer.new(@merchant)
       end
     else
-      render json: ErrorSerializer.bad_data, status: :bad_request
+      render json: ErrorSerializer.bad_data(Error.new('Parameter must be present')), status: :bad_request
     end
   end
 
