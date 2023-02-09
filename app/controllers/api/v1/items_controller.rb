@@ -13,7 +13,7 @@ class Api::V1::ItemsController < ApplicationController
     if item.save
       render json: ItemSerializer.new(item), status: :created
     else
-      render json: ErrorSerializer.unprocessable(item.errors), status: :unprocessable_entity
+      render json: ErrorSerializer.serialize(Error.new(item.errors)), status: :unprocessable_entity
     end
   end
 
@@ -23,7 +23,7 @@ class Api::V1::ItemsController < ApplicationController
     if @item.save
       render json: ItemSerializer.new(@item)
     else
-      render json: ErrorSerializer.unprocessable(@item.errors), status: :not_found
+      render json: ErrorSerializer.serialize(Error.new(@item.errors)), status: :not_found
     end
   end
 
