@@ -179,9 +179,6 @@
       "/Users/samuelcox/turing_work/3mod/rails-engine/app/errors/bad_data_error.rb": {
         "lines": [
           1,
-          1,
-          17,
-          null,
           null
         ]
       },
@@ -325,8 +322,8 @@
           null,
           1,
           2,
-          3,
-          2,
+          1,
+          1,
           null,
           null,
           null,
@@ -447,6 +444,6 @@
         ]
       }
     },
-    "timestamp": 1675986823
+    "timestamp": 1706914419
   }
 }
